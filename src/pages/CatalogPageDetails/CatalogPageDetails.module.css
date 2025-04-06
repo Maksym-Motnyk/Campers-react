@@ -1,0 +1,28 @@
+.containerDetails {
+  padding-top: 48px;
+}
+.title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.3;
+  color: #101828;
+  margin-bottom: 8px;
+}
+
+/* font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 150%;
+color: var(--main);
+ */
+.imageContainer {
+  display: flex;
+  gap: 48px;
+}
+
+.imageDetails {
+  border-radius: 10px;
+  width: 292px;
+  /* height: 312px; */
+  /* height: auto; */
+}
