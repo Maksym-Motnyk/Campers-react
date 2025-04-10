@@ -1,16 +1,20 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Outlet, useParams, useLocation } from "react-router-dom";
 import css from "./CatalogPageDetails.module.css";
+import { CiStar } from "react-icons/ci";
+import { NavLink, Link } from "react-router-dom";
+import FormDetails from "../../components/FormDetails/FormDetails";
 
 export default function CatalogPageDetails() {
   const { id } = useParams();
-  console.log(id);
   const [camper, setCamper] = useState(null);
-  console.log(camper);
-
+  // console.log(camper);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const location = useLocation();
+  console.log(location);
 
   useEffect(() => {
     async function getCampersDetails() {
@@ -35,10 +39,14 @@ export default function CatalogPageDetails() {
 
   return (
     <div className={css.containerDetails}>
+      <Link>Go back</Link>
       <h3 className={css.title}>{camper.name}</h3>
-      <p>{camper.rating}</p>
-      <p>{camper.location}</p>
-      <p>€{camper.price}</p>
+      <div className={css.wrapperDetails}>
+        <CiStar className={css.iconStar} />
+        <p className={css.rating}>{camper.rating}</p>
+        <p className={css.location}>{camper.location}</p>
+      </div>
+      <p className={css.price}>€{`${Number(camper.price).toFixed(2)}`}</p>
       {/* <div>
         {camper.gallery.map((original, index) => (
           <img key={index} src={original} alt={`camper-${index}`} />
@@ -48,6 +56,24 @@ export default function CatalogPageDetails() {
         <img className={css.imageDetails} src={camper.gallery[0]?.original} />
         <img className={css.imageDetails} src={camper.gallery[1]?.original} />
         <img className={css.imageDetails} src={camper.gallery[2]?.original} />
+      </div>
+      <p className={css.description}>{camper.description}</p>
+      <ul className={css.detailsList}>
+        <li>
+          <NavLink className={css.detailsLink} to="features">
+            Features
+          </NavLink>
+        </li>
+        <li>
+          <NavLink className={css.detailsLink} to="reviews">
+            Reviews
+          </NavLink>
+        </li>
+      </ul>
+      <hr className={css.hr} />
+      <div className={css.wrappDetails}>
+        <Outlet />
+        <FormDetails />
       </div>
     </div>
   );

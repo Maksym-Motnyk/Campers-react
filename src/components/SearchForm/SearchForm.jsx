@@ -1,7 +1,8 @@
 import { Formik, Form, Field } from "formik";
 import css from "./SearchForm.module.css";
+import { FaTv } from "react-icons/fa";
 
-export default function SearchForm() {
+export default function SearchForm({ value, onFilter }) {
   return (
     <div>
       <Formik initialValues={{}} onSubmit={() => {}}>
@@ -10,10 +11,12 @@ export default function SearchForm() {
             location
           </label>
           <Field
+            value={value}
+            onChange={(e) => onFilter(e.target.value)}
             id="searchCamper"
             name="searchCamper"
             type="text"
-            placeholder="Kyiv, Ukraine"
+             placeholder="Kyiv, Ukraine"
             className={css.input}
           />
         </Form>
@@ -24,7 +27,10 @@ export default function SearchForm() {
         <li className={css.vehicleListItem}>AC</li>
         <li className={css.vehicleListItem}>Automatic</li>
         <li className={css.vehicleListItem}>Kitchen</li>
-        <li className={css.vehicleListItem}>TV</li>
+        <li className={css.vehicleListItem}>
+          <FaTv className={css.iconTv} />
+          TV
+        </li>
         <li className={css.vehicleListItem}>Bathroom</li>
       </ul>
       <h2 className={css.vehicle}>Vehicle type</h2>

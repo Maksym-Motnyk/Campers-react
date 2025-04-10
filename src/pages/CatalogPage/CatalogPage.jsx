@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
+import { useSearchParams, useLocation } from "react-router-dom";
 import axios from "axios";
 import CatalogPageList from "../../components/CatalogPageList/CatalogPageList";
 import SearchForm from "../../components/SearchForm/SearchForm";
@@ -6,10 +7,24 @@ import css from "./CatalogPage.module.css";
 
 export default function CatalogPage() {
   const [campers, setCampers] = useState([]);
+  console.log(campers);
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [page, setPage] = useState(1);
+  // const [ownerFilter, setOwnerFilter] = useState("");
   // const [hasMore, sethasMore] = useState(true);
+
+  const [searchParams, setSeearchParams] = useSearchParams();
+  const ownerFilter = searchParams.get("owner") ?? "";
+
+  const location = useLocation();
+  console.log(location);
+
+  const changeOwnerFilter = (newOwner) => {
+    searchParams.set("owner", newOwner);
+    setSeearchParams(searchParams);
+  };
 
   useEffect(() => {
     async function getCampers() {
@@ -34,19 +49,24 @@ export default function CatalogPage() {
     }
     getCampers();
   }, []);
-  console.log(campers);
 
   const handleLoadMore = () => {
     setPage(page + 1);
   };
+
+  const filteredCampers = useMemo(() => {
+    return campers.filter((camper) =>
+      camper.location.toLowerCase().includes(ownerFilter.toLowerCase())
+    );
+  }, [campers, ownerFilter]);
 
   return (
     <section className={css.sectionCatalog}>
       {loading && <p>Loading campers,please wait...</p>}
       {error && <p>There was an error,please reload this page!</p>}
       <div className={css.catalogPageContainer}>
-        <SearchForm />
-        {campers.length > 0 && <CatalogPageList campers={campers} />}
+        <SearchForm value={ownerFilter} onFilter={changeOwnerFilter} />
+        <CatalogPageList campers={filteredCampers} />
       </div>
       {
         <button onClick={handleLoadMore} className={css.camperButton}>

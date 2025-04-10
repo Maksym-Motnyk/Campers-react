@@ -1,0 +1,52 @@
+.featuresContainer {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  padding: 44px 52px;
+  width: 631px;
+}
+.featuresList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 100px;
+}
+
+.featuresListItem {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: #101828;
+  border-radius: 100px;
+  padding: 12px 18px;
+  width: auto;
+  height: 48px;
+  background: #f2f4f7;
+  mix-blend-mode: multiply;
+}
+.featuresTitle {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+  margin-bottom: 24px;
+}
+.hr {
+  margin-bottom: 24px;
+  stroke-width: 1px;
+  color: #dadde1;
+  height: 2px;
+}
+.campersList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.campersListItem {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #101828;
+}

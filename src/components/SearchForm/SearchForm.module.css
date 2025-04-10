@@ -38,6 +38,8 @@
 }
 .vehicleListItem {
   display: flex;
+  flex-direction: column;
+  gap: 5px;
   align-items: center;
   justify-content: center;
   border: 1px solid #dadde1;
@@ -62,4 +64,8 @@
   letter-spacing: -0.01em;
   color: #ffffff;
   border: none;
+}
+.iconTv {
+  width: 32px;
+  height: 32px;
 }

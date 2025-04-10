@@ -1,6 +1,7 @@
 import css from "./CatalogPageList.module.css";
 import { Link } from "react-router-dom";
 
+
 export default function CatalogPageList({ campers }) {
   return (
     <div>
@@ -16,7 +17,9 @@ export default function CatalogPageList({ campers }) {
             <div>
               <div className={css.camperWrap}>
                 <h3 className={css.camperTitle}>{camper.name}</h3>
-                <p className={css.camperPrice}>€{camper.price}</p>
+                <p className={css.camperPrice}>
+                  €{`${Number(camper.price).toFixed(2)}`}
+                </p>
               </div>
               <div className={css.camperWrapper}>
                 <p className={css.camperRating}>{camper.rating}</p>
