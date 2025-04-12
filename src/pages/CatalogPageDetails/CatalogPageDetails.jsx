@@ -1,6 +1,8 @@
 import axios from "axios";
+import React, { Suspense } from "react";
+
 import { useEffect, useState } from "react";
-import { Outlet, useParams, useLocation } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import css from "./CatalogPageDetails.module.css";
 import { CiStar } from "react-icons/ci";
 import { NavLink, Link } from "react-router-dom";
@@ -13,8 +15,8 @@ export default function CatalogPageDetails() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const location = useLocation();
-  console.log(location);
+  // const location = useLocation();
+  // console.log(location);
 
   useEffect(() => {
     async function getCampersDetails() {
@@ -39,7 +41,6 @@ export default function CatalogPageDetails() {
 
   return (
     <div className={css.containerDetails}>
-      <Link>Go back</Link>
       <h3 className={css.title}>{camper.name}</h3>
       <div className={css.wrapperDetails}>
         <CiStar className={css.iconStar} />
@@ -72,7 +73,9 @@ export default function CatalogPageDetails() {
       </ul>
       <hr className={css.hr} />
       <div className={css.wrappDetails}>
+        {/* <Suspence fallback={<div>Loading...</div>}> */}
         <Outlet />
+        {/* </Suspence> */}
         <FormDetails />
       </div>
     </div>

@@ -1,7 +1,6 @@
 import css from "./CatalogPageList.module.css";
 import { Link } from "react-router-dom";
 
-
 export default function CatalogPageList({ campers }) {
   return (
     <div>

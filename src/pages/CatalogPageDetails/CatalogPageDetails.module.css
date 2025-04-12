@@ -1,5 +1,5 @@
 .containerDetails {
-  padding-top: 48px;
+  padding-top: 120px;
 }
 .title {
   font-weight: 600;
@@ -79,4 +79,7 @@
 .wrappDetails {
   display: flex;
   justify-content: space-between;
+}
+.link:focus {
+  outline: none;
 }

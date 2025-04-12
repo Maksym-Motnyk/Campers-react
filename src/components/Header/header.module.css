@@ -1,9 +1,22 @@
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* щоб був поверх усього */
   padding-top: 28px;
   padding-bottom: 28px;
-  display: flex;
-  align-items: center;
   background-color: #f7f7f7;
   width: 100%;
+  /* left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw; */
+}
+.headerContainer {
+  display: flex;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
 }

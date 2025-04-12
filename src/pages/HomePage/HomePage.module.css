@@ -9,9 +9,10 @@
 }
 
 .heroContainer {
-  max-width: 1312px;
+  padding-top: 260px;
+  padding-bottom: 260px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 260px 64px;
 }
 
 .heroTitle {
