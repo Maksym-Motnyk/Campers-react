@@ -48,6 +48,9 @@
   height: 96px;
   mix-blend-mode: multiply;
 }
+.vehicleListItem :active {
+  border-color: #e44848;
+}
 .typeList {
   display: flex;
   gap: 12px;

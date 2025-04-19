@@ -9,12 +9,12 @@ export default function Navigation() {
     <nav className={css.nav}>
       <ul className={css.navList}>
         <li className={css.navListItem}>
-          <NavLink className={makeNavLinkClass} to="/">
+          <NavLink className={makeNavLinkClass} to="/" >
             Home
           </NavLink>
         </li>
         <li className={css.navListItem}>
-          <NavLink className={makeNavLinkClass} to="/catalog">
+          <NavLink className={makeNavLinkClass} to="/catalog" end>
             Catalog
           </NavLink>
         </li>

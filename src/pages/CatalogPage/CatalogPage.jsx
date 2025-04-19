@@ -8,7 +8,6 @@ import LoadMoreBtn from "../../components/LoadMoreBtn/LoadMoreBtn";
 
 export default function CatalogPage() {
   const [campers, setCampers] = useState([]);
-  console.log(campers);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);

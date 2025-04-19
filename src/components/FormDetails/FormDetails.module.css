@@ -34,7 +34,12 @@
   outline: none;
   margin-bottom: 14px;
 }
-
+.field::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #6c717b;
+}
 .textarea {
   border-radius: 10px;
   padding: 18px 308px 76px 18px;
@@ -45,6 +50,12 @@
   outline: none;
   margin-bottom: 24px;
   resize: none;
+}
+.textarea::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #6c717b;
 }
 .formBtn {
   border-radius: 200px;

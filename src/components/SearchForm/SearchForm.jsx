@@ -1,8 +1,12 @@
 import { Formik, Form, Field } from "formik";
 import css from "./SearchForm.module.css";
+// import { useSearchParams } from "react-router-dom";
 import { FaTv } from "react-icons/fa";
 
 export default function SearchForm({ value, onFilter }) {
+  // const [searchParams, setSearchParams] = useSearchParams();
+
+
   return (
     <div>
       <Formik initialValues={{}} onSubmit={() => {}}>
@@ -16,7 +20,7 @@ export default function SearchForm({ value, onFilter }) {
             id="searchCamper"
             name="searchCamper"
             type="text"
-             placeholder="Kyiv, Ukraine"
+            placeholder="Kyiv, Ukraine"
             className={css.input}
           />
         </Form>
